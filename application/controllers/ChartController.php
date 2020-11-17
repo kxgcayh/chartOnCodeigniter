@@ -19,14 +19,15 @@ class ChartController extends CI_Controller
 
     public function highCharts()
     {
-        // Monthly Chart
+        // Data Month
         $getMonthOnly = $this->ModelReport->getDataMonth();
-        $monthlyScores = $this->ModelReport->getMonthlyScore();
+        // Data Day
+        $getDayOnly = $this->ModelReport->getDataDaily();
+        // Data Score
+        $getScores = $this->ModelReport->getDataScore();
+        $data['days'] = json_encode(array_column($getDayOnly, 'day'));
         $data['months'] = json_encode(array_column($getMonthOnly, 'month'));
-        $data['scores'] = json_encode(array_column($monthlyScores, 'count'), JSON_NUMERIC_CHECK);
-
-        // Daily Chart
-        // $getDayOnly = $this->ModelReport->getDataDaily();
+        $data['scores'] = json_encode(array_column($getScores, 'count'), JSON_NUMERIC_CHECK); // JSON_NUMERIC_CHECK used for remove tick from an Array
 
         $this->load->view('layouts/header');
         $this->load->view('contents/charts/highcharts', $data);

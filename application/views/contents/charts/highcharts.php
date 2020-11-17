@@ -3,8 +3,13 @@
 	<div id="dailyCharts"></div>
 </figure>
 
+Month: <?php echo $months; ?><br>
+Day: <?php echo $days; ?><br>
+Score: <?php echo $scores; ?><br>
+
 <script type="text/javascript">
 	const months = <?php echo $months; ?> ,
+		days = <?php echo $days; ?> ,
 		scores = <?php echo $scores; ?> ;
 	Highcharts.chart('monthlyCharts', {
 		chart: {
