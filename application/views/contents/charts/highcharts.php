@@ -3,16 +3,19 @@
 </figure>
 
 <script type="text/javascript">
-	var months = <?php echo $months; ?> ;
-	var scores = <?php echo $scores; ?> ;
+	const months = <?php echo $months; ?> ,
+		scores = <?php echo $scores; ?> ;
 	Highcharts.chart('container', {
 		chart: {
 			type: 'line'
 		},
 		title: {
-			text: 'Monthly Score Ratio'
+			text: 'Monthly Score Chart'
 		},
 		xAxis: {
+			title: {
+				text: 'Month'
+			},
 			categories: months
 		},
 		yAxis: {
