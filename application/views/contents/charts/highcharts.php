@@ -1,11 +1,12 @@
 <figure class="highcharts-figure">
-	<div id="container"></div>
+	<div id="monthlyCharts"></div>
+	<div id="dailyCharts"></div>
 </figure>
 
 <script type="text/javascript">
 	const months = <?php echo $months; ?> ,
 		scores = <?php echo $scores; ?> ;
-	Highcharts.chart('container', {
+	Highcharts.chart('monthlyCharts', {
 		chart: {
 			type: 'line'
 		},
@@ -13,9 +14,6 @@
 			text: 'Monthly Score Chart'
 		},
 		xAxis: {
-			title: {
-				text: 'Month'
-			},
 			categories: months
 		},
 		yAxis: {

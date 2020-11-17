@@ -19,12 +19,14 @@ class ChartController extends CI_Controller
 
     public function highCharts()
     {
-        $data['reports'] = $this->ModelReport->getAllData();
-
+        // Monthly Chart
         $getMonthOnly = $this->ModelReport->getDataMonth();
         $monthlyScores = $this->ModelReport->getMonthlyScore();
         $data['months'] = json_encode(array_column($getMonthOnly, 'month'));
         $data['scores'] = json_encode(array_column($monthlyScores, 'count'), JSON_NUMERIC_CHECK);
+
+        // Daily Chart
+        // $getDayOnly = $this->ModelReport->getDataDaily();
 
         $this->load->view('layouts/header');
         $this->load->view('contents/charts/highcharts', $data);
