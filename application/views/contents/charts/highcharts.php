@@ -41,12 +41,8 @@
 	</div>
 </div>
 
-<?php echo $months; ?>
 
 <script type="text/javascript">
-	const months = <?php echo $months; ?> ,
-		days = <?php echo $days; ?> ,
-		scores = <?php echo $scores; ?> ;
 
 	$(document).ready(function() {
 		formFilter();
@@ -69,10 +65,6 @@
 			},
 			dataType: 'JSON',
 			success: function(response) {
-				console.log(response.data[0].data);
-				console.log(scores);
-				console.log(response.categories);
-				console.log(months);
 				Highcharts.chart('monthlyCharts', {
 					chart: {
 						type: 'line'
@@ -81,12 +73,11 @@
 						text: 'Monthly Score Chart'
 					},
 					xAxis: {
-						// categories: months
 						categories: response.categories
 					},
 					yAxis: {
 						title: {
-							text: 'Value'
+							text: 'Score Value'
 						}
 					},
 					legend: {
@@ -101,15 +92,7 @@
 							}
 						}
 					},
-					series: [{
-						name: 'Score',
-						data: scores
-					}],
-					// series: [{
-					// 	name: response.data[0].name,
-					// 	data: response.data[0].data
-					// }],
-					// series: response.data[0].data,
+					series: response.data,
 					responsive: {
 						rules: [{
 							condition: {

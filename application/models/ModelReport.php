@@ -50,9 +50,10 @@ class ModelReport extends CI_Model
 
     public function getDataScore()
     {
-        $query = $this->db->query('SELECT SUM(score) as count FROM tbl_score GROUP BY MONTH(created_at) ORDER BY created_at');
-        foreach ($query->result() as $data) {
-            $result[] = $data;
+        $result = [];
+        $query = $this->db->query('SELECT SUM(score) as count FROM tbl_score GROUP BY MONTH(created_at) ORDER BY created_at')->result();
+        foreach ($query as $row) {
+            array_push($result, (int)$row->count);
         }
         return $result;
     }
