@@ -72,10 +72,10 @@
 	<!-- ChartJS -->
 	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 
-	<title>Learn Codeigniter</title>
+	<title>Learning Chart</title>
 </head>
 <nav class="navbar navbar-dark bg-dark">
-	<a class="navbar-brand">Learn Codeigniter</a>
+	<a class="navbar-brand">Charts</a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
 		aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon"></span>
